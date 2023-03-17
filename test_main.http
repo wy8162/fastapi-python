@@ -9,3 +9,19 @@ GET http://127.0.0.1:8000/hello/User
 Accept: application/json
 
 ###
+GET http://localhost/hello/someone/age/20
+Accept: application/json
+
+###
+POST http://localhost/books
+Content-Type: application/json
+
+{
+    "title": "The Great Gatsby",
+    "isbn": "isbn-1234",
+    "author": "F. Scott Fitzgerald"
+}
+
+###
+GET http://localhost/books/isbn-1234
+Accept: application/json
