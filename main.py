@@ -36,7 +36,6 @@ async def create_book(book: Book):
 
 @app.get("/books/{isbn}")
 async def get_books(isbn: str):
-
   book = books[isbn]
   if book:
     return {"message": book}
