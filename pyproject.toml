@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "fastapi-python"
+version = "0.1.0"
+description = ""
+authors = ["Yang Wang <wy8162@gmail.com>"]
+readme = "README.md"
+packages = [{include = "fastapi_python"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.94.1"
+uvicorn = "^0.21.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
