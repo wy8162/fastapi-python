@@ -1,15 +1,16 @@
 [tool.poetry]
-name = "fastapi-python"
+name = "study-gcp"
 version = "0.1.0"
 description = ""
 authors = ["Yang Wang <wy8162@gmail.com>"]
 readme = "README.md"
-packages = [{include = "fastapi_python"}]
+packages = [{include = "study_gcp"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = "^0.94.1"
+pydantic = "^1.10.6"
 uvicorn = "^0.21.1"
+fastapi = "^0.94.1"
 
 
 [build-system]
