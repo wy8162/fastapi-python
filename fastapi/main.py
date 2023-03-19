@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+import requests
 import uvicorn
 
 books = {}
@@ -18,14 +19,9 @@ async def root():
   return {"message": "Hello World"}
 
 
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-  return {"message": f"Hello {name}"}
-
-
-@app.get("/hello/{name}/age/{age}")
-async def say_hello(name: str, age: int):
-  return {"message": f"Hello {name}, you are {age} years old"}
+@app.get("/ping")
+async def ping():
+  return {"message": "ok"}
 
 
 @app.post("/books")
@@ -41,6 +37,15 @@ async def get_books(isbn: str):
     return {"message": book}
   else:
     return {"message": "Book not found"}
+
+
+@app.get("/gcp/metadata")
+async def get_gcp_metadata():
+  url = "http://metadata.google.internal/computeMetadata/v1/instance" \
+        "/attributes/?recursive=true "
+  headers = {"Metadata-Flavor": "Google"}
+  response = requests.get(url, headers=headers)
+  return {"message": response.json()}
 
 
 if __name__ == "__main__":
