@@ -1,0 +1,6 @@
+runtime: python39
+api_version: 1
+instance_class: F1
+service: bookstore
+
+entrypoint: gunicorn --workers 1 --worker-class uvicorn.workers.UvicornWorker --bind :$PORT bookstore.main:app
